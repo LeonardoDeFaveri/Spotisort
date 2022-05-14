@@ -6,7 +6,8 @@ fi;
 
 ID=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.artifactId -q -DforceStdout 2> /dev/null)
 
-folder="./target/${ID}-1.0-SNAPSHOT"
+# folder="./target/${ID}"
+folder="./target/spotisort"
 dest_ID=$(echo $ID | tr '[:upper:]' '[:lower:]')
 
 rm -rf ${TOMCAT_WEBAPPS}/${dest_ID} 2> /dev/null

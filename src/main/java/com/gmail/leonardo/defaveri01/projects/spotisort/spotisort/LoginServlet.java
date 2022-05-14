@@ -29,11 +29,21 @@ public class LoginServlet extends HttpServlet {
             query.append("client_id=a7e4e80a2d4043dab69e2a8af74dbc0d&");
             query.append("redirect_uri=" + URLEncoder.encode(Utils.BASE_URL, "UTF-8") + "&");
             query.append("scope=playlist-modify-private");
-
             URL url = new URL(Utils.AUTH_URL + "?" + query.toString());
-            
+
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
+
+            PrintWriter out = response.getWriter();
+            if (connection.getResponseCode() == 200) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                StringBuilder sb = new StringBuilder();
+                String output;
+                while ((output = br.readLine()) != null) {
+                    sb.append(output);
+                }
+                out.print(sb.toString());
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
