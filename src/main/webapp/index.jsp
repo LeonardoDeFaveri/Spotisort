@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+  <title>Spotisort</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+  <h1>Spotisort</h1>
+  <br/>
+  <a href="login">Click here to login</a>
 </body>
 </html>
